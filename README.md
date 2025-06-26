@@ -4,7 +4,7 @@
 
 This backend ensures secure and consistent communication between the Piggy app and Firebase.
 
-## 🎯 Purpose
+## Purpose
 
 Firebase Authentication and other services are limited on Desktop apps. This backend acts as a **middleware** that:
 
@@ -12,20 +12,20 @@ Firebase Authentication and other services are limited on Desktop apps. This bac
 - Syncs data securely between Firebase and the Piggy desktop app.
 - Provides endpoints for user/session management.
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - Python 3.11+
 - Django 4.x
 - Firebase Admin SDK
 - Django REST Framework
 
-## 🔐 Features
+## Features
 
-- 🔑 Firebase token verification
-- 📦 API for handling secure communication with Piggy app
-- ⚠️ No need to expose Firebase credentials on client side
+- Firebase token verification
+- API for handling secure communication with Piggy app
+- No need to expose Firebase credentials on client side
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Installation
 
