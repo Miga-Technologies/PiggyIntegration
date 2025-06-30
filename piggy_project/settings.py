@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-von$mw#at82eje=5d9rvgs12)lp$76xqdn-^(ek_@nh+)n@p^j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 FIREBASE_CONFIG = {
     'apiKey': config('FIREBASE_API_KEY'),

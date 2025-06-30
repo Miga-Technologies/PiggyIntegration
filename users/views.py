@@ -25,6 +25,7 @@ def firebase_register(request):
         return Response(response.json(),status=status.HTTP_200_OK)
     return Response({'error':'Something went wrong with API'},status=status.HTTP_404_NOT_FOUND)
 
+
 @api_view(['POST'])
 def firebase_login(request):
     email = request.data.get('email')
