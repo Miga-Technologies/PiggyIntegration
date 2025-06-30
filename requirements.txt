@@ -1,3 +1,4 @@
 djangorestframework
 django
-firebase
+firebase-admin
+djangorestframework-simplejwt

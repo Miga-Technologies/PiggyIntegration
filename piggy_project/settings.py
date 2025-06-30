@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,12 +28,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+FIREBASE_CONFIG = {
+    'apiKey': config('FIREBASE_API_KEY'),
+    'authDomain': config('FIREBASE_AUTH_DOMAIN'),
+    'projectId': config('FIREBASE_PROJECT_ID'),
+    'storageBucket': config('FIREBASE_STORAGE_BUCKET'),
+    'messagingSenderId': config('FIREBASE_MESSAGING_SENDER_ID'),
+    'appId': config('FIREBASE_APP_ID'),
+    'measurementId': config('FIREBASE_MEASUREMENT_ID'),
+}
+
+FIREBASE_SIGNUP_URL = f"{config('FIREBASE_SIGNUP_URL')}?key={config('FIREBASE_API_KEY')}"
+FIREBASE_SIGNIN_URL = f"{config('FIREBASE_SIGNIN_URL')}?key={config('FIREBASE_API_KEY')}"
+
 
 # Application definition
 
 INSTALLED_APPS = [
     'users',
-    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -69,11 +83,7 @@ TEMPLATES = [
     },
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
+
 
 WSGI_APPLICATION = 'piggy_project.wsgi.application'
 
@@ -106,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
