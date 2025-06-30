@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,6 +27,19 @@ SECRET_KEY = 'django-insecure-von$mw#at82eje=5d9rvgs12)lp$76xqdn-^(ek_@nh+)n@p^j
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+FIREBASE_CONFIG = {
+    'apiKey': config('FIREBASE_API_KEY'),
+    'authDomain': config('FIREBASE_AUTH_DOMAIN'),
+    'projectId': config('FIREBASE_PROJECT_ID'),
+    'storageBucket': config('FIREBASE_STORAGE_BUCKET'),
+    'messagingSenderId': config('FIREBASE_MESSAGING_SENDER_ID'),
+    'appId': config('FIREBASE_APP_ID'),
+    'measurementId': config('FIREBASE_MEASUREMENT_ID'),
+}
+
+FIREBASE_SIGNUP_URL = f"{config('FIREBASE_SIGNUP_URL')}?key={config('FIREBASE_API_KEY')}"
+FIREBASE_SIGNIN_URL = f"{config('FIREBASE_SIGNIN_URL')}?key={config('FIREBASE_API_KEY')}"
 
 
 # Application definition
